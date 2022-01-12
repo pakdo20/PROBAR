@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout-bodeguero :: head">
+</head>
+
+<!--Prueba de creacion de layout -->
+<body class="bodeguero-body">
+	<header th:replace="layout/layout-bodeguero :: header"> </header>
+
+	<main>
+		<section id="registrar-bodeguero">
+			<div class="container jumbotron">
+				<div class="text-center">
+					<img th:src="@{/images/crear-curso.png}" height="60">
+					<h3 class="card-title">Registrar bodeguero</h3>
+				</div>
+				<form th:action="@{/bodegueros/save}" th:object="${bodeguero}" method="post">
+					<div class="form-row">
+						
+						
+						<div class="form-group col-md-12">
+							<label>Nombre: </label> <input type="text"
+								class="form-control" th:field="*{nombreApellidos}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>telefono: </label> <input type="text"
+								class="form-control" th:field="*{telefono}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>email: </label> <input type="text"
+								class="form-control" th:field="*{email}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>contra: </label> <input type="text"
+								class="form-control" th:field="*{contra}" required>
+						</div>
+						
+						
+						
+						
+					
+
+
+					</div>
+					<div class="text-center pt-5">
+						<button type="submit" class="btn btn-dark mr-4">Registrarse</button>
+						<a class="btn btn btn-outline-dark" th:href="@{/}">Cancelar</a>
+					</div>
+				</form>
+			</div>
+		</section>
+	</main>
+
+	<footer th:replace="layout/layout-bodeguero :: footer"></footer>
+</body>
+</html>

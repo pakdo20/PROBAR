@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout-bodeguero :: head">
+</head>
+
+<!--Prueba de creacion de layout -->
+<body class="bodeguero-body">
+	<header th:replace="layout/layout-bodeguero :: header"> </header>
+
+	<main>
+		<section id="crear-curso">
+			<div class="container jumbotron">
+				<div class="text-center">
+					<img th:src="@{/images/crear-curso.png}" height="60">
+					<h3 class="card-title">Registrar producto</h3>
+				</div>
+				< 	form th:action="@{/productos/save}" th:object="${producto}" method="post">
+					<div class="form-row">
+						<div class="form-group col-md-12">
+							<label>Nombre del Producto: </label> <input type="text"
+								class="form-control" th:field="*{nombre}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Descripcion: </label> <input type="text"
+								class="form-control" th:field="*{descripcion}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Clasificacion: </label> <select th:field="*{clasificacion}"
+								class="form-control" >
+								<option th:each="clasificacion : ${clasificaciones}"
+									th:value="${clasificacion.id}" th:text="${clasificacion.nombre}"></option>
+							</select>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Precio: </label> <input type="text" class="form-control"
+								th:field="*{precio}" required>
+						</div>
+						
+					
+
+
+					</div>
+					<div class="text-center pt-5">
+						<button type="submit" class="btn btn-dark mr-4">Registrar 
+						Producto</button>
+						<a class="btn btn btn-outline-dark" th:href="@{/}">Cancelar</a>
+					</div>
+				</form>
+			</div>
+		</section>
+	</main>
+
+	<footer th:replace="layout/layout-bodeguero :: footer"></footer>
+</body>
+</html>

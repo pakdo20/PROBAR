@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout-bodeguero :: head">
+</head>
+
+<body class="student-body">
+	<header th:replace="layout/layout-bodeguero :: header"> </header>
+	
+	<main>
+	<section class="container">
+		<div class="container jumbotron">
+		
+		
+		
+			<div class="text-center">
+				<img th:src="@{/images/crear-curso.png}" height="60">
+				<h3 class="card-title">Info de la factura</h3>
+				
+				
+				
+					<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">id de la factura</th>
+							<th scope="col">Precio total </th>
+							<th scope="col">fecha de compra</th>
+							<th scope="col">fecha de pago</th>
+							<th scope="col">dia de espera</th>
+							<th scope="col">medio de pago</th>
+							<th scope="col">estado</th>
+					
+							
+						</tr>
+					</thead>
+					
+					<tbody>
+					<tr th:each="factura : ${facturaview}"  >
+							<th th:text="${factura.id}">.</th>
+							<td><a th:href="@{/}" th:text="${factura.precioTotal}">.</a></td>
+							<td th:text="${factura.fechaCompra}"></td>
+							<td th:text="${factura.fechaPago}"></td>
+							<td th:text="${factura.dias}"></td>
+							<td th:text="${factura.medioPago}"></td>
+							<td th:text="${factura.estado}"></td>
+							
+							
+							
+							
+							
+							
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				
+				
+				
+				
+			</div>
+
+
+
+
+		</div>
+		
+			
+		</section>
+	</main>
+
+	<footer th:replace="layout/layout-bodeguero :: footer"></footer>
+</body>
+</html>

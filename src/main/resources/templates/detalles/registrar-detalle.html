@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout-bodeguero :: head">
+</head>
+
+<!--Prueba de creacion de layout -->
+<body class="bodeguero-body">
+	<header th:replace="layout/layout-bodeguero :: header"> </header>
+
+	<main>
+		<section id="crear-curso">
+		<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">id de la factura</th>
+							<th scope="col">precio total de la factura</th>
+							<th scope="col">Nombre y Apellido del Cliente</th>
+							
+						</tr>
+					</thead>
+					
+					<tbody>
+					<tr th:each="factura : ${facturas}"  >
+							<th th:text="${factura.id}">.</th>
+							<td th:text="${factura.precioTotal}"></td>
+							<td th:text="${factura.cliente}"></td>
+							
+							
+							
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">id del cliente</th>
+							<th scope="col">nombre y apellido del cliente</th>
+							
+						</tr>
+					</thead>
+					
+					<tbody>
+					<tr th:each="cliente : ${clientes}">
+							<th th:text="${cliente.id}"></th>
+							<th th:text="${cliente.nombreApellidos}"></th>
+							
+							
+							
+						</tr>
+						
+					</tbody>
+					
+				</table>
+				
+				
+				
+				
+			<div class="container jumbotron">
+
+
+
+
+				
+
+
+
+				<div class="text-center">
+					<img th:src="@{/images/crear-curso.png}" height="60">
+					<h3 class="card-title">Registrar detalle</h3>
+				</div>
+				<form th:action="@{/detalles/save}" th:object="${detalle}" method="post">
+					<div class="form-row">
+						
+						<div class="form-group col-md-12">
+							<label>Cliente del a factura: </label> <select th:field="*{factura}"
+								class="form-control" >
+								<option th:each="factura : ${facturas}"
+									th:value="${factura.id}" th:text="${factura.id}"></option>
+							</select>
+						</div>
+						
+						<div class="form-group col-md-12">
+							<label>Producto: </label> <select th:field="*{producto}"
+								class="form-control" >
+								<option th:each="producto : ${productos}"
+									th:value="${producto.id}" th:text="${producto.nombre}"></option>
+							</select>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Cantidad: </label> <input type="text" class="form-control"
+								th:field="*{cantidad}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Descuento: </label> <input type="text" class="form-control"
+								th:field="*{descuento}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Sub total: </label> <input type="text" class="form-control"
+								th:field="*{subTotal}" required>
+						</div>
+						
+					
+
+
+					</div>
+					<div class="text-center pt-5">
+						<button type="submit" class="btn btn-dark mr-4">Registrar 
+						Detalle</button>
+						<a class="btn btn btn-outline-dark" th:href="@{/}">Cancelar</a>
+					</div>
+				</form>
+			</div>
+		</section>
+	</main>
+
+	<footer th:replace="layout/layout-bodeguero :: footer"></footer>
+</body>
+</html>
