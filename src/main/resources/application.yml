@@ -2,9 +2,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/bodegappdb
-    username: postgres
-    password: gatiposttogres1
+    url: jdbc:postgresql://ec2-3-217-216-13.compute-1.amazonaws.com:5432/dere5ja8nffg7r
+    username: zoqpbpjkzpjyuz
+    password: 102a0c24d57cf4c9576e9681075c3e8beedbb2d63b3e805f1f557239a599ddf9
   jpa:
     database: postgresql
     hibernate:
