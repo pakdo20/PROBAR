@@ -14,9 +14,7 @@
 	<name>spring-Bodegapp</name>
 	<description>web para bodega</description>
 
-	<properties>
-		<java.version>11</java.version>
-	</properties>
+	
 
 	<dependencies>
 		<dependency>
